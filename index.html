@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Web Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        var table_data = $('.student-data tbody')
+        var data_append = '';
+        if ($('.hidden').children().length > 0) {
+           $.each($('.data-student'), function(i){
+              var stt = $(this).children().eq(0).text();
+              var name = $(this).children().eq(1).text();
+              var class_name = $(this).children().eq(2).text();
+              var age = $(this).children().eq(3).text();
+              data_append += '<tr>'
+                + '<td>'+ stt +'</td>'
+                + '<td>'+ name +'</td>'
+                + '<td>'+ class_name +'</td>'
+                + '<td>'+ age +'</td>'
+                + '<td>'+ age +'</td>'
+                + '<td>'
+                + '<button id="button" type="button" class="button button5">View</button>'
+                + '<button type="button" class="button2 button5">Edit</button>'
+                + '<button type="button" class="button3 button5">Delete</button>'
+                + '</td>'
+                + '</tr>'
+           })
+           table_data.append(data_append)
+        }
+    })
+    $(document).ready(function(){
+      $("#button").click(function(){
+        fetch('/')
+.then(function(response) {
+  console.log(response)
+  // Do stuff with the response
+})
+.catch(function(error) {
+  console.log('Looks like there was a problem: \n', error);
+});
+      });
+      $("#btn2").click(function(){
+        $("#test2").html("<b>Hello world!</b>");
+      });
+      $("#btn3").click(function(){
+        $("#test3").val("Dolly Duck");
+      });
+    });
+    </script>
+  <style>
+    .button {
+      background-color: #1787e2;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 6px 4px;
+      cursor: pointer;
+    }
+    .button2 {
+      background-color: #40ac1f;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 6px 4px;
+      cursor: pointer;
+    }
+    .button3 {
+      background-color: #df1620;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 6px 4px;
+      cursor: pointer;
+    }
+    .button4 {
+      background-color: #1787e2;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      text-align: right;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 36px 1px;
+      cursor: pointer;
+    }
+    .button5 {border-radius: 4px;}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2></h2>
+    <button id="button" type="button" class="button4 button5">Add</button>
+    <table class="table table-bordered student-data">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Student Name</th>
+          <th>Class</th>
+          <th>Age</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  
+  </body>
+  </html>
